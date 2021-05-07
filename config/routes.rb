@@ -25,4 +25,6 @@ Rails.application.routes.draw do
     resources :members, except: [:index, :new, :destroy]
   end
   
+  #devise_for :users, controllers: {sessions: 'users/sessions'}
+  
 end
