@@ -4,29 +4,56 @@
     <title>KokoGyaru</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <nav>
-        <ul>
-          <% if member_signed_in? %>
-            <li>ユーザー</li>
-            <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
-          <% elsif admin_signed_in? %>
-            <li>管理者</li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-          <% else %>
-            <li>ゲストユーザー</li>
-            <li><%= link_to "新規登録", new_member_registration_path %></li>
-            <li><%= link_to "ログイン", new_member_session_path %></li>
-          <% end %>
-        </ul>
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <ul class="navbar-nav ml-auto">
+            <% if member_signed_in? %>
+              <li class="nav-item">メンバー</li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
+
+            <% elsif admin_signed_in? %>
+              <li class="nav-item">管理者</li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+
+            <% else %>
+              <li class="nav-item">ゲスト</li>
+              <li class="nav-item"><%= link_to "新規登録", new_member_registration_path %></li>
+              <li class="nav-item"><%= link_to "ログイン", new_member_session_path %></li>
+            <% end %>
+          </ul>
       </nav>
     </header>
+  
+    <main class="mb-auto">
     <%= yield %>
+    </main>
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <p>きっと見つかる、心の友達</p>
+          </div>
+          <div class="col-md-8">
+            <h6 class="text-white mt-2 mb-3">Link</h6>
+            <ul class="p-0 list-unstyled">
+              <li>
+                <a href="" title="About" class="text-white-50">概要</a>
+              </li>
+              <li>
+                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

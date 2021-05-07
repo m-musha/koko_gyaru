@@ -67,6 +67,7 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'jp_prefecture'
 gem 'devise'
+
 gem 'pry-rails'
 gem 'rubocop', require: false
 gem "refile", require: "refile/rails", github: 'manfe/refile'
