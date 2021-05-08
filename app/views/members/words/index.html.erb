@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    
+    <h4>投稿一覧</h4>
+    <% @words.each do |word| %>
+      <%= link_to word_path(word.id) do %>
+      <span><%= word.sentence %></span>
+      <% end %>
+    <% end %>
+    
+  </div>
+</div>

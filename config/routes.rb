@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
-  
-  root to: 'members/words#index'
-  
-  devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
-  }
-  
+
+
   devise_for :members, controllers: {
     sessions:      'members/sessions',
     passwords:     'members/passwords',
     registrations: 'members/registrations'
   }
   
+  devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+  }
+
+
+  root to: 'members/words#index'
+
   namespace :admins do
     resources :genres, except: [:destroy]
   end
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
     end
     resources :members, except: [:index, :new, :destroy]
   end
-  
+
   #devise_for :users, controllers: {sessions: 'users/sessions'}
-  
+
 end
