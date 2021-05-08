@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   root to: 'members/words#index'
 
-  namespace :admins do
+  scope module: :admins do
     resources :genres, except: [:destroy]
   end
 
