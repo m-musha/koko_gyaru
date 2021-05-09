@@ -9,7 +9,9 @@ class Word < ApplicationRecord
   #カラム自体は存在しないけど、カラムのように使うことができる
   accepts_nested_attributes_for :word_genres
   
-  # word 1:n word_genres n:1 genres
+  def liked_by?(member)
+    likes.where(member_id: member.id).exists?
+  end
 
 
 end

@@ -5,7 +5,6 @@ class Members::MembersController < ApplicationController
     @member = Member.find(params[:id])
   end
   
-  
   def edit
   end 
   

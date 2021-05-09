@@ -5,6 +5,8 @@ class Members::WordsController < ApplicationController
   end
 
   def show
+    @word = Word.find(params[:id])
+    @member = @word.member
   end
 
   def new
@@ -16,8 +18,9 @@ class Members::WordsController < ApplicationController
 
   def create
     word = Word.new(word_params)
+    word.member = current_member
     word.save
-    redirect_to '/'
+    redirect_to word_path(word.id)
   end
 
   def edit

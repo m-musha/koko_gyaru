@@ -3,9 +3,13 @@
     <h3 class="col-md-6">新規登録</h3>
   </div>
 
-    <%= form_with model: @member, url: new_member_registration_path, id: 'new_member', class: 'new_member', local: true do |f| %>
+    <%= form_with model: @member, url: member_registration_path, id: 'new_member', class: 'new_member', local: true do |f| %>
       <%= render "members/shared/error_messages", resource: resource %>
-
+      
+      <div class="form-group row md-3">
+        <%= f.label :name, "ニックネーム" %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
 
       <div class="form-group row md-3">
         <%= f.label :email, "メールアドレス" %><br>

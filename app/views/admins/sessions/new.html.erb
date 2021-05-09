@@ -2,7 +2,7 @@
   <div class="row mb-5">
     <h3 class="col-md-6">ログイン</h3>
   </div>
-  <%= form_with model: @member, url: member_session_path, local: true do |f| %>
+  <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
     <div class="form-group row md-3">
       <%= f.label :email, "メールアドレス" %><br>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
