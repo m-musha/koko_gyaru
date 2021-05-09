@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     passwords:     'members/passwords',
     registrations: 'members/registrations'
   }
-  
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root to: 'members/words#index'
 
   scope module: :admins do
-    resources :genres, except: [:destroy]
+    resources :genres
   end
 
   scope module: :members do

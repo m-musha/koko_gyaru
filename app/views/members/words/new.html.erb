@@ -2,6 +2,10 @@
   <div class="row">
     <%= form_with model:@word, local:true do |f| %>
       <%= f.text_area :sentence %>
+      <%= f.label :genre, 'ジャンル' %>
+      <%= f.fields_for :word_genres do |genre_form| %>
+      <%= genre_form.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択" %>
+      <% end %>
       <%= f.submit '届ける' %>
     <% end %>
   </div>

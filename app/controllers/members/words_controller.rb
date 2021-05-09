@@ -9,6 +9,9 @@ class Members::WordsController < ApplicationController
 
   def new
     @word = Word.new
+    # WordGenre.new(word_id: word.id)を簡略して記述
+    @word.word_genres.build
+
   end
 
   def create
@@ -29,7 +32,7 @@ class Members::WordsController < ApplicationController
   private
 
   def word_params
-    params.require(:word).permit(:sentence)
+    params.require(:word).permit(:sentence, word_genres_attributes: :genre_id)
   end
 
 

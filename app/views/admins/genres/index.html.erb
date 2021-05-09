@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h4 class="col-md-4">言葉のジャンル一覧<a href="#newgenre">追加</a></h4>
+    <h5 class="col-md-4">言葉のジャンル一覧<a href="#newgenre">追加</a></h5>
   </div>
 
   <div class="row">
@@ -10,6 +10,7 @@
           <tr>
             <th class="text-left">ジャンル名</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
           <tr>
             <td><%= genre.name %></td>
             <td><%= link_to "編集", edit_genre_path(genre.id) %></td>
+            <td><%= link_to "削除", genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-sm btn-danger"%></td>
           </tr>
           <% end %>
         </tbody>
