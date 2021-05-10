@@ -1,8 +1,38 @@
 <div class="container">
+  <div class="row d-flex align-items-center">
+    <h4 class="col-md-8 text-center">マイページ</h4>
+      <div class="col-md-4">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <%= link_to new_word_path do %>
+                <i class="far fa-edit fa-2x fa-border my-orange text-center"></br>
+                <span style="font-size: 13px;">新規投稿</span>
+                </i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_member_path(@member) do %>
+                <i class="fas fa-user-edit fa-2x fa-border my-green text-center"></br>
+                <span style="font-size: 13px;">プロフィールを編集</span>
+                </i>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
   <div class="row">
-    
-    <h3>マイページ</h3>
-    
+    <table class="table">
+      <% @words.each do |word| %>
+        <% word.genres.each do |genre| %>
+        <tr>
+          <td><%= genre.name %><% end %></td>
+          <td><%= word.sentence %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>
-    

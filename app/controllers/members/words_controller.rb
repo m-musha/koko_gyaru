@@ -35,7 +35,7 @@ class Members::WordsController < ApplicationController
   private
 
   def word_params
-    params.require(:word).permit(:sentence, word_genres_attributes: :genre_id)
+    params.require(:word).permit(:sentence, :member_id, word_genres_attributes: :genre_id)
   end
 
 
