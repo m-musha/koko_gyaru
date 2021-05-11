@@ -24,18 +24,28 @@ class Members::WordsController < ApplicationController
   end
 
   def edit
+    @word = Word.find(params[:id])
   end
 
   def update
+    @word = Word.find(params[:id])
+    if @word.update(word_params)
+      redirect_to word_path(@word)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    word = Word.find(params[:id])
+    word.destroy
+    redirect_to words_path
   end
 
   private
 
   def word_params
-    params.require(:word).permit(:sentence, :member_id, word_genres_attributes: :genre_id)
+    params.require(:word).permit(:member_id, :sentence, word_genres_attributes: :genre_id)
   end
 
 

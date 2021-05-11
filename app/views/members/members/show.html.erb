@@ -25,14 +25,22 @@
       </div>
   </div>
   <div class="row">
-    <table class="table">
-      <% @words.each do |word| %>
-        <% word.genres.each do |genre| %>
-        <tr>
-          <td><%= genre.name %><% end %></td>
-          <td><%= word.sentence %></td>
-        </tr>
-      <% end %>
+    <table class="table table-bordered">
+      <tbody class="col-md-10">
+        <% @words.each do |word| %>
+          <% word.genres.each do |genre| %>
+          <tr>
+            <td><%= genre.name %><% end %></td>
+            <td><%= word.sentence %></td>
+            <td><%= render 'members/likes/like-btn', word:@word %></td>
+            <td>
+              <%= link_to word_path(word), method: :delete, data: { confirm: '本当に削除しますか?' } do %>
+              <i class="fas fa-trash-alt my-gray"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

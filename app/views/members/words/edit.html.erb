@@ -1,11 +1,12 @@
 <div class="container">
   <div class="row d-flex align-items-center">
-    <h4 class="col-md-12 text-center">プロフィールを編集</h4>
+    <h4 class="col-md-8 text-center">投稿編集ページ</h4>
   </div>
-  <div class="row">
-  <%= form_with model:@word, local:true do |f| %>
+  <div class="row d-flex align-items-center">
+    <div class="col-md-12"></div>
+    <%= form_with model:@word, local: true do |f| %>
     <div class="form-group">
-      <%= f.label :sentence, '言葉' %></br>
+      <%= f.label :sentence, "言葉" %></br>
       <%= f.text_area :sentence %>
     </div>
     <div class="form-group">
@@ -15,8 +16,8 @@
       <% end %>
     </div>
     <div class="form-group">
-      <%= f.submit '届ける' %>
+      <%= f.submit "変更", class: "btn btn-outline-success" %>
     </div>
     <% end %>
   </div>
-</div
+</div>

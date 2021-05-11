@@ -8,9 +8,9 @@
         <tbody>
           <tr>
             <td>
-              <%= link_to member_path(@word, @member) do %>
+              <%= link_to member_path(@word) do %>
                 <%= attachment_image_tag @word.member, :profile_image, size:"80x80", fallback: "no_image.jpg" %><br>
-                <%= @word.member.name %>
+                <%= @member.name %>
               <% end %>
             </td>
           </tr>

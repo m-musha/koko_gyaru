@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_05_08_102432) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.string "profile_image"
+    t.string "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_05_08_102432) do
     t.text "sentence", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_words_on_member_id"
   end
 
 end
