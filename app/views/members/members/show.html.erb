@@ -32,7 +32,7 @@
           <tr>
             <td><%= genre.name %><% end %></td>
             <td><%= word.sentence %></td>
-            <td><%= render 'members/likes/like-btn', word:@word %></td>
+            <td class="like-btn"><%= render 'members/likes/like-btn', word:word %></td>
             <td>
               <%= link_to word_path(word), method: :delete, data: { confirm: '本当に削除しますか?' } do %>
               <i class="fas fa-trash-alt my-gray"></i>

@@ -4,14 +4,23 @@
   </div>
 
   <div class="row">
-    <% @words.each do |word| %>
-      <%= link_to word_path(word.id) do %>
-      <%= word.sentence %>
-      <% end %>
-    　<% word.genres.each do |genre| %>
-    　<%= genre.name %>
-    　<% end %>
-    <% end %>
-
+    <table class="table table-bordered">
+      <tbody class="col-md-10">
+        <% @words.each do |word| %>
+        <tr>
+          <td>
+            <% word.genres.each do |genre| %>
+            <%= genre.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to word_path(word.id) do %>
+            <%= word.sentence %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

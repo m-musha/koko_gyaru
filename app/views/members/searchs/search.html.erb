@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row d-flex align-items-center">
+    <table class="table table-hover table-inverse">
+      <% if @range == 'word' %>
+        <h4>"<%= @text %>" の検索結果</h4>
+          <thead>
+            <tr>
+             <th></th>
+             <th>言葉</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @word.each do |word| %>
+              <tr>
+                <td>
+                  <%= link_to member_path(word.member.id) do %>
+                  <%= attachment_image_tag word.member, :profile_image, size: "40x40", fallback: "no_image.jpg" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to word_path(word.id) do %>
+                  <%= word.sentence %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+      <% else %>
+          <thead>
+            <tr>
+              <th></th>
+              <th>メンバー</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <h2>Members search for "<%= @text %>"</h2>
+            <% @member.each do |member| %>
+              <tr>
+                <td><%= attachment_image_tag member, :profile_image, size: "40x40", fallback: "no_image.jpg" %></td>
+                <td><%= member.name %></td>
+                <td><%= link_to "Show", member_path(member) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

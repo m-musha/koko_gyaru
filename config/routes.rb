@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resource :likes, only: [:destroy, :create]
     end
     resources :members, except: [:index, :new, :destroy]
+    get '/search' => 'searchs#search'
   end
 
   #devise_for :users, controllers: {sessions: 'users/sessions'}

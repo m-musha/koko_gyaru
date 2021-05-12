@@ -13,5 +13,12 @@ class Word < ApplicationRecord
     likes.where(member_id: member.id).exists?
   end
 
+  def self.search(search, text)
+    if search == 'perfect'
+      @word = Word.where(sentence: "#{text}")
+    else
+      @word = Word.where("sentence LIKE ?", "%#{text}%")
+    end
+  end
 
 end

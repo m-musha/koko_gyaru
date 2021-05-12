@@ -1,14 +1,14 @@
 class Members::SearchsController < ApplicationController
-  
+
   def search
-		@model = params[:model]
-		@content = params[:content]
-		@method = params[:method]
-		if @model == 'member'
-			@records = Member.search_for(@content, @method)
-		else
-			@records = Word.search_for(@content, @method)
-		end
+    @range = params[:range]
+    search = params[:search]
+    @text = params[:text]
+    if @range == 'member'
+       @member = Member.search(search, @text)
+    else
+       @word = Word.search(search, @text)
+    end
   end
-	
+
 end

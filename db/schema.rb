@@ -59,6 +59,13 @@ ActiveRecord::Schema.define(version: 2021_05_08_102432) do
   end
 
   create_table "words", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.text "sentence", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "words", force: :cascade do |t|
     t.integer "member_id"
     t.text "sentence", null: false
     t.datetime "created_at", null: false
