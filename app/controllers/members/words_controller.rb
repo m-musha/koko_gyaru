@@ -2,6 +2,7 @@ class Members::WordsController < ApplicationController
 
   def index
     @words = Word.all
+    @all_ranks = Word.create_all_ranks
   end
 
   def show

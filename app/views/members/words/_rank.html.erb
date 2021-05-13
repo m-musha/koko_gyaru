@@ -1,0 +1,21 @@
+  <div class="row">
+    <h5 class="col-md-10">ランキング</h5>
+    
+      <% lastLike = 0 %>
+      <% j = 1 %>
+      <% @all_ranks.each.with_index(1) do |word, i| %>
+        <% if i == 1 %>
+          <% lastLike = word.likes.count %>
+        <% end %>
+        <% if word.likes.count != lastLike %>
+          <% j = i %>
+          第<%= j %>位<%= word.sentence %>
+          いいね数：<%= word.likes.count %>
+          <% lastFavorite = word.likes.count %>
+        <% else %>
+          <% lastFavorite = word.likes.count %>
+          第<%= j %>位<%= word.sentence %>
+          いいね数：<%= word.likes.count %>
+        <% end %>
+      <% end %>
+  </div>
