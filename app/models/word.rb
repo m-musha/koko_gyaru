@@ -3,9 +3,6 @@ class Word < ApplicationRecord
 #ジャンルとアソシエーション
   has_many :word_genres
   has_many :genres, through: :word_genres
-#タグとアソシエーション
-  has_many :word_tags, dependent: :destroy
-  has_many :tags, through: :word_tags
 
   has_many :likes, dependent: :destroy
   belongs_to :member
@@ -28,7 +25,7 @@ class Word < ApplicationRecord
   end
 
 #いいね数のランキング機能
-  def self.create_all_ranks 
+  def self.create_all_ranks
     Word.find(Like.group(:word_id).order('count(word_id) desc').limit(3).pluck(:word_id))
   end
 
