@@ -6,9 +6,11 @@ class Members::SearchsController < ApplicationController
     @text = params[:text]
     if @range == 'member'
        @member = Member.search(search, @text)
-    else
+    elsif @range == 'word'
        @word = Word.search(search, @text)
+    else
+       @genre = Genre.search(search, @text)
     end
+    
   end
-
 end

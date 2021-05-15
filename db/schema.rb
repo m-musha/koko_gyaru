@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_102432) do
     t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_word_genres_on_genre_id"
+    t.index ["word_id"], name: "index_word_genres_on_word_id"
   end
 
   create_table "word_tags", force: :cascade do |t|

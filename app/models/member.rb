@@ -9,11 +9,12 @@ class Member < ApplicationRecord
 
   attachment :profile_image, destroy: false
 
+#検索機能
   def self.search(search, text)
     if search == 'perfect'
-      @member = Member.where(name: "#{text}")
+      Member.where(name: "#{text}")
     else
-      @member = Member.where('name LIKE ?', "%#{text}%")
+      Member.where('name LIKE ?', "%#{text}%")
     end
   end
 

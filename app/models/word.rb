@@ -18,9 +18,9 @@ class Word < ApplicationRecord
 #検索機能
   def self.search(search, text)
     if search == 'perfect'
-      @word = Word.where(sentence: "#{text}")
+      Word.where(sentence: "#{text}")
     else
-      @word = Word.where("sentence LIKE ?", "%#{text}%")
+      Word.where("sentence LIKE ?", "%#{text}%")
     end
   end
 
