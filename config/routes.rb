@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :members do
+    resources :inquiries, only: [:new, :create]
     resources :words do
       resource :likes, only: [:destroy, :create]
     end
