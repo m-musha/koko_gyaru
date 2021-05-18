@@ -28,5 +28,7 @@ class Word < ApplicationRecord
   def self.create_all_ranks
     Word.find(Like.group(:word_id).order('count(word_id) desc').limit(3).pluck(:word_id))
   end
+  
+  validates :sentence, presence: true
 
 end

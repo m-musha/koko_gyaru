@@ -17,6 +17,9 @@ class Member < ApplicationRecord
       Member.where('name LIKE ?', "%#{text}%")
     end
   end
+  
+  validates :email, presence: true
+  validates :name, length: {maximum: 15, minimum: 1}, uniqueness: true
 
 end
 
