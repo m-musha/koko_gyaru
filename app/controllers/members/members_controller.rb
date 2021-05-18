@@ -3,6 +3,7 @@ class Members::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @words = @member.words
+    @name = @member.name
   end
 
   def edit

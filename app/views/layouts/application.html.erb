@@ -19,6 +19,7 @@
           <ul class="navbar-nav ml-auto">
             <% if member_signed_in? %>
               <li class="nav-item">メンバー</li>
+              <li class="nav-item"><%= link_to "マイページ", "/members/#{current_member.id}" %></li>
               <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
               <li class="nav-item"><%= render 'layouts/search-form' %></li>
             <% elsif admin_signed_in? %>
