@@ -5,6 +5,8 @@
   <div class="row d-flex align-items-center">
     <div class="col-md-12"></div>
     <%= form_with model:@word, local: true do |f| %>
+      <%= render 'layouts/error_messages', object: @word %>
+      
     <div class="form-group">
       <%= f.label :sentence, "言葉" %></br>
       <%= f.text_area :sentence %>

@@ -1,9 +1,8 @@
 class Members::MembersController < ApplicationController
 
   def show
-    @words = Word.all
-    @word = Word.find(params[:id])
-    @member = @word.member
+    @member = Member.find(params[:id])
+    @words = @member.words
   end
 
   def edit
@@ -11,8 +10,8 @@ class Members::MembersController < ApplicationController
   end
 
   def update
-    member = Member.find(params[:id])
-    if member.update(member_params)
+    @member = Member.find(params[:id])
+    if @member.update(member_params)
       flash[:success] = "変更を保存しました！"
       redirect_to member_path(current_member.id)
     else
