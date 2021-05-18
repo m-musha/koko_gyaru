@@ -18,21 +18,33 @@ class Members::WordsController < ApplicationController
   end
 
   def create
-    word = Word.new(word_params)
-    word.member = current_member
-    word.save
-    redirect_to word_path(word.id)
+    @word = Word.new(word_params)
+    @word.member = current_member
+    if @word.save
+      flash[:success] = "投稿しました！"
+      redirect_to word_path(@word)
+    else
+      flash[:alert] = "投稿に失敗しました！"
+      render :new
+    end
   end
 
   def edit
     @word = Word.find(params[:id])
+    if @word.member != current_member.id
+      render :edit
+    else
+      redirect_to "/"
+    end
   end
 
   def update
     @word = Word.find(params[:id])
     if @word.update(word_params)
+      flash[:success] = "変更を保存しました！"
       redirect_to word_path(@word)
     else
+      flash[:alert] = "保存に失敗しました！"
       render :edit
     end
   end

@@ -8,9 +8,10 @@ class Members::InquiriesController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.save
       InquiryMailer.send_mail(@inquiry).deliver 
+      flash[:success] = "送信されました！"
       redirect_to new_inquiry_path
-      flash[:email] = "Your message was successfully sent!!."
     else
+      flash.now[:alert] = "送信に失敗しました！"
       render :new
     end
   end

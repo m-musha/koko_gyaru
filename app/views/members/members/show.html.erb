@@ -13,10 +13,11 @@
                 <% end %>
               </td>
               <td>
-                <%= link_to edit_member_path(@member) do %>
-                <i class="fas fa-user-edit fa-2x fa-border my-green text-center"></br>
-                <span style="font-size: 13px;">プロフィールを編集</span>
-                </i>
+                <% if @member.id == current_member.id %>
+                  <%= link_to edit_member_path(@member) do %>
+                  <i class="fas fa-user-edit fa-2x fa-border my-green text-center"></br>
+                  <span style="font-size: 13px;">プロフィールを編集</span></i>
+                  <% end %>
                 <% end %>
               </td>
             </tr>
