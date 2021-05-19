@@ -1,0 +1,22 @@
+  <div class="row">
+    <h5 class="col-md-10">総合ランキング</h5>
+       
+      <% lastLike = 0 %>                               <!--いいねを代入する場所-->
+      <% j = 1 %>                                      <!--jは順位を表している-->
+      <% all_ranks.each.with_index(1) do |word, i| %>  <!--with_index(1)でランキングの順位を1位から開始-->
+        <% if i == 1 %>
+          <% lastLike = word.likes.count %>
+        <% end %>
+                                                       <!--ここまでで1位のwordがlastlikeに代入される-->
+        <% if word.likes.count != lastLike %>          <!--ここから1位以下の順位について-->
+          <% j = i %>
+          第<%= j %>位<%= word.sentence %>
+          いいね数：<%= word.likes.count %>
+          <% lastFavorite = word.likes.count %>
+        <% else %>                                     <!--elseに1位を記述-->
+        <% lastFavorite = word.likes.count %>
+          第<%= j %>位<%= word.sentence %>
+          いいね数：<%= word.likes.count %>
+        <% end %>
+      <% end %>
+  </div>

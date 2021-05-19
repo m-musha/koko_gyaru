@@ -1,0 +1,23 @@
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <ul class="navbar-nav ml-auto">
+            <div class="logo"><%= link_to image_tag("logo.png"), "/" %></div>
+            <% if member_signed_in? %>
+              <li class="nav-item">ログイン中</li>:
+              <li class="nav-item"><%= link_to "/members/#{current_member.id}" do %>
+              <% end %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
+              <li class="nav-item"><%= render 'layouts/search-form' %></li>
+            <% elsif admin_signed_in? %>
+              <li class="nav-item">管理者</li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+
+            <% else %>
+              <li class="nav-item">ゲスト</li>
+              <li class="nav-item"><%= link_to "新規登録", new_member_registration_path %></li>
+              <li class="nav-item"><%= link_to "ログイン", new_member_session_path %></li>
+            <% end %>
+          </ul>
+      </nav>
+    </header>
