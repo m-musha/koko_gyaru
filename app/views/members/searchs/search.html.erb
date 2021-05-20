@@ -30,7 +30,6 @@
             <tr>
               <th></th>
               <th>メンバー</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -39,7 +38,6 @@
               <tr>
                 <td><%= attachment_image_tag member, :profile_image, size: "40x40", fallback: "no_image.jpg" %></td>
                 <td><%= member.name %></td>
-                <td><%= link_to "Show", member_path(member) %></td>
               </tr>
             <% end %>
           </tbody>
@@ -51,13 +49,10 @@
             </tr>
           </thead>
           <tbody>
-        <h4>"<%= @text %>" <span style="font-size: 18px;">の検索結果</span></h4>
+        <h4>"<%= @text %>"　の検索結果</h4>
             <% @genre.each do |genre| %>
               <tr>
                 <td><%= genre.name %></td>
-                <% genre.words.each do |word| %>
-                <td><%= link_to word.sentence, word_path(word) %></td>
-                <% end %>
               </tr>
             <% end %>
           </tbody>

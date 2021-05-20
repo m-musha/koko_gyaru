@@ -1,3 +1,48 @@
 // Place all the styles related to the Words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.ranks{
+  width: 100%;
+  margin: 20px auto;
+  background-color: #fff;
+  list-style: none;
+  border-style: dashed;
+  border-color: #CCC;
+
+  &-list{
+  border-bottom-style: dashed;
+  height: 35px;
+ }
+ &-number{
+   width: 100px;
+   border-right-style: dashed;
+   border-color: #CCC;
+   text-align: center;
+ }
+ &-genre{
+   width: 140px;
+   padding-left: 10px;
+   border-right-style: dashed;
+   border-color: #CCC;
+ }
+ &-word{
+   width: 750px;
+   padding-left: 10px;
+   border-right-style: dashed;
+   border-color: #CCC;
+ }
+ &-like{
+   width: 147px;
+   padding-left: 10px;
+ }
+}
+
+tr{
+  height: 35px;
+}
+.genre{
+  width: 140px;
+}
+

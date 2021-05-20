@@ -1,8 +1,4 @@
 <div class="container">
-  <div class="row d-flex justify-content-center">
-    <h4 class="d-inline-flex p-3">投稿一覧</h4>
-  </div>
-
   <%= render 'members/words/all_rank', all_ranks:@all_ranks %>
 
   <div class="row">
@@ -10,12 +6,12 @@
       <tbody class="col-md-10">
         <% @words.each do |word| %>
         <tr>
-          <td>
+          <td class="genre">
             <% word.genres.each do |genre| %>
-            <%= genre.name, class: '' %>
+            <%= genre.name %>
             <% end %>
           </td>
-          <td>
+          <td class="sentence">
             <%= link_to word_path(word.id) do %>
             <%= word.sentence %>
             <% end %>

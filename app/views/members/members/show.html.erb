@@ -1,23 +1,15 @@
 <div class="container">
   <div class="row d-flex align-items-center">
-    <h4 class="col-md-8 text-center"><%= @name %>のお部屋</h4>
+    <h4><%= @name %>のお部屋</h4>
       <div class="col-md-4">
         <table>
           <tbody>
             <tr>
               <td>
-                <%= link_to new_word_path do %>
-                <i class="far fa-edit fa-2x fa-border my-orange text-center"></br>
-                <span style="font-size: 13px;">新規投稿</span>
-                </i>
-                <% end %>
               </td>
               <td>
                 <% if @member.id == current_member.id %>
-                  <%= link_to edit_member_path(@member) do %>
-                  <i class="fas fa-user-edit fa-2x fa-border my-green text-center"></br>
-                  <span style="font-size: 13px;">プロフィールを編集</span></i>
-                  <% end %>
+                  <%= link_to "プロフィールを編集", edit_member_path(@member), class: "btn" %>
                 <% end %>
               </td>
             </tr>
