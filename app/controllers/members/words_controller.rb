@@ -1,4 +1,5 @@
 class Members::WordsController < ApplicationController
+  before_action :authenticate_member!, except: [:index, :show]
 
   def index
     @words = Word.all

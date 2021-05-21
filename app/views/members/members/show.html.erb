@@ -9,8 +9,9 @@
               </td>
               <td>
                 <% if @member.id == current_member.id %>
-                  <%= link_to "プロフィールを編集", edit_member_path(@member), class: "btn" %>
+                  <%= link_to "プロフィールを編集", edit_member_path(@member) %>
                 <% end %>
+
               </td>
             </tr>
           </tbody>

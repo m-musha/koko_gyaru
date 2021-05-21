@@ -3,30 +3,28 @@
     <h3 class="d-inline-flex p-3 font-weight-bold">ココギャルにログイン</h3>
   </div>
 
-  <div class="row d-flex justify-content-center">
     <%= form_with model: @member, url: member_session_path, id: 'new_member', class: 'new_member', local: true do |f| %>
-      <div class="flex-column mb-4">
-        <%= f.label :email, "メールアドレス" %><br>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="form-group row md-3 offset-2">
+        <%= f.label :email, "メールアドレス", class:"control-label col-sm-3 text-right" %><br>
+        <%= f.email_field :email, class:"form-control col-4", autofocus: true, autocomplete: "email" %>
       </div>
 
-      <div class="form-group flex-column mb-4">
-        <%= f.label :password, "パスワード" %><br>
-        <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="form-group row md-3 offset-2">
+        <%= f.label :password, "パスワード", class:"control-label col-sm-3 text-right" %><br>
+        <%= f.password_field :password, class:"form-control col-4", autocomplete: "current-password" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="form-group flex-column mb-4">
+        <div class="form-group mb-3 offset-5">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me, "ログインを維持しますか?" %>
         </div>
       <% end %>
 
-      <div class="form-group flex-column mb-4">
-        <%= f.submit "ログイン", class:"col-4 offset-3 btn btn-success" %>
+      <div class="form-group flex-column mb-3">
+        <%= f.submit "ログイン", class:"col-2 offset-5 btn btn-outline-secondary" %>
       </div>
     <% end %>
-  </div>
   <div class="row d-flex justify-content-center">
     <div class="d-inline-flex p-2">
       <%= render "members/shared/links" %>

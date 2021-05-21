@@ -3,22 +3,25 @@
     <h4>プロフィールを編集</h4>
   </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <%= form_with model:@member, local:true do |f| %>
-        <%= render 'layouts/error_messages', object: @member %>
-        <div class="form-group text-center">
+  <%= render 'layouts/error_messages', object: @member %>
+
+    <%= form_with model:@member, local:true do |f| %>
+      <div class="form-group row md-3 offset-2 mx-auto" style="width: 400px;">
+        <div class="text-center mt-4" style="width: 400px;">
           <%= attachment_image_tag @member, :profile_image, size:"160x160", fallback: "no_image.jpg" %>
+        </div>
+        <div class="text-right mt-3" style="width: 390px;">
           <%= f.attachment_field :profile_image %>
         </div>
-        <div class="form-group text-center">
+      </div>
+      <div class="form-group row md-3 offset-2 mx-auto" style="width: 300px;">
+        <div class="text-center mt-2" style="width: 300px;">
           <%= f.label :name, "ニックネーム" %>
+        </div>
           <%= f.text_field :name, class: "form-control name" %>
         </div>
         <div class="form-group text-center">
           <%= f.submit "変更", class: "btn btn-outline-success" %>
         </div>
-      <% end %>
-    </div>
-  </div>
+    <% end %>
 </div>

@@ -1,4 +1,5 @@
 class Members::SearchsController < ApplicationController
+  before_action :authenticate_member!
 
   def search
     @range = params[:range]
@@ -11,6 +12,6 @@ class Members::SearchsController < ApplicationController
     else
        @genre = Genre.search(search, @text)
     end
-    
+
   end
 end

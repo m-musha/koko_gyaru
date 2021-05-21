@@ -27,7 +27,6 @@
                     <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
 　　　　　　　　　<!--ゲストの時-->
                   <% else %>
-                    <li class="nav-item">ゲスト</li>
                     <li class="nav-item">
                       <%= link_to new_member_registration_path do %>
                       <i class="fas fa-user-lock fa-2x fa-border my-green"></i>

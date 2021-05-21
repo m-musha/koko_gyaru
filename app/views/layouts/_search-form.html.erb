@@ -1,3 +1,4 @@
+<% if member_signed_in? %>
   <%= form_with url: search_path, method: :get, local: true do |f| %>
     <div class="search-form"><%= f.text_field :text, class: "form-control" %></div>
     <div class="search-item"><%= f.select :range, options_for_select([["メンバー","member"], ["言葉","word"], ["ジャンル","genre"]]) %></div>
@@ -7,3 +8,4 @@
     <% end %>
     </div>
   <% end %>
+<% end %>

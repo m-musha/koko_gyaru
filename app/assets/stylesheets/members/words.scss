@@ -46,3 +46,13 @@ tr{
   width: 140px;
 }
 
+.form{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-textarea{
+    width: 400px;
+    margin: 0 auto;
+  }
+ }
