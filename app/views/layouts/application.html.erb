@@ -14,29 +14,17 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <main class="mb-auto">
+    <main>
       <%= render 'layouts/flash_messages' %>
       <%= yield %>
     </main>
-    <footer class="bg-dark text-white pt-5 pb-4">
-      <div class="container">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <p>きっと見つかる、心の友達</p>
-          </div>
-          <div class="col-md-8">
-            <h6 class="text-white mt-2 mb-3">Link</h6>
-            <ul class="p-0 list-unstyled">
-              <li>
-                <a href="" title="About" class="text-white-50">概要</a>
-              </li>
-              <li>
-                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <footer>
+      <div class="contact">
+        <i class="fas fa-envelope my-skyblue"></i>
+        <%= link_to "お問い合わせ", new_inquiry_path, :style=>"color:black;" %>
       </div>
+      <p class="footer-text">© 2021 ココギャル"</p>
+
     </footer>
   </body>
 </html>

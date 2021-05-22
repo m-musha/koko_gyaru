@@ -1,4 +1,4 @@
-    <header class="shadow-sm">
+    <header class="shadow-md mb-0">
       <div class="container">
         <div class="row">
             <div class="logo"><%= link_to image_tag("logo.png"), "/" %></div>
@@ -22,9 +22,10 @@
                       <i class="fas fa-sign-out-alt fa-2x fa-border my-black"></i>
                       <% end %>
                     </li>
+                  <!--管理者の時-->
                   <% elsif admin_signed_in? %>
-                    <li class="nav-item">管理者</li>
-                    <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+                    <p><%= link_to "ジャンル", genres_path, class:"link" %></p>
+                    <p><%= link_to "ログアウト", destroy_admin_session_path, class:"link", method: :delete %></p>
 　　　　　　　　　<!--ゲストの時-->
                   <% else %>
                     <li class="nav-item">

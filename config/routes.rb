@@ -7,18 +7,17 @@ Rails.application.routes.draw do
     registrations: 'members/registrations'
   }
 
-  devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
-  }
-
-
-  root to: 'members/words#index'
-
-  scope module: :admins do
-    resources :genres
+  devise_for :admins, skip: :all
+    devise_scope :admin do
+    get 'admins/sign_in' => 'admins/sessions#new', as: 'new_admin_session'
+    post 'admins/sign_in' => 'admins/sessions#create', as: 'admin_session'
+    delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
   end
+    scope module: :admins do
+    resources :genres
+    end
+
+  root to: 'sites#top'
 
   scope module: :members do
     resources :inquiries, only: [:new, :create]
@@ -28,7 +27,5 @@ Rails.application.routes.draw do
     resources :members, except: [:index, :new, :destroy]
     get '/search' => 'searchs#search'
   end
-
-  #devise_for :users, controllers: {sessions: 'users/sessions'}
 
 end

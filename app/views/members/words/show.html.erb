@@ -2,31 +2,27 @@
   <div class="row">
     <h4>詳細ページ</h4>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      <table class="table">
-        <tbody>
-          <tr>
-            <td>
-              <%= link_to member_path(@word.member) do %>
-                <%= attachment_image_tag @word.member, :profile_image, size:"80x80", fallback: "no_image.jpg" %><br>
-                <%= @member.name %>
-              <% end %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-md-5">
-      <%= @word.sentence %>
-      <table class="table">
-        <tbody>
-          <tr>
-            <td>投稿日<%= @word.created_at.strftime("%Y年%m月%d日") %></td>
-            <td class="like-btn"><%= render 'members/likes/like-btn', word:@word %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  
+  <div class="sentence-area">
+    <%= @word.sentence %>
   </div>
+  <div class="info">
+    <%= link_to member_path(@word.member) do %>
+      <%= attachment_image_tag @word.member, :profile_image, size:"80x80", fallback: "no_image.jpg" %><br>
+      <%= @member.name %>
+    <% end %>
+  </div>
+  
+  
+    <div class="day">
+      投稿日<%= @word.created_at.strftime("%Y年%m月%d日") %>
+    </div>
+    <div class="like">
+      <%= render 'members/likes/like-btn', word:@word %>
+    </div>
+
+      
+
+
+
 </div>
