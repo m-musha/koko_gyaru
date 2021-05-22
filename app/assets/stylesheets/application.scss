@@ -72,19 +72,26 @@
   }
  }
 
- .table{
+ table{
   background-color: #fff;
+  border-style: none;
+  height: 60px;
+ }
+ tr,td{
+
+  text-align: center;
+  vertical-align: middle;
  }
 
- nav{
+ .navbar{
   width: 300px;
   height: 80px;
   text-align: right;
+  &-item{
+   margin: 15px;
+  }
  }
 
- li{
-  margin: 15px;
- }
 
  p{
   width: 120px;
@@ -96,7 +103,7 @@
  }
 
  h4{
-  width: 250px;
+  width: 350px;
   height: 40px;
   display: flex;
   justify-content: center;

@@ -1,33 +1,38 @@
 <div class="container">
-  <div class="row d-flex align-items-center">
+  <div class="row d-flex align-items-center pt-5">
     <h4><%= @name %>のお部屋</h4>
-      <div class="col-md-4">
-        <table>
-          <tbody>
-            <tr>
-              <td>
-              </td>
-              <td>
-                <% if @member.id == current_member.id %>
-                  <%= link_to "プロフィールを編集", edit_member_path(@member) %>
-                <% end %>
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
   </div>
+<!--プロフィール-->
+    <div class="member-info">
+      <div class="profile-container w-75 d-flex mx-auto justify-content-around align-items-center border-bottom py-5">
+        <div class="profile_image"><%= attachment_image_tag @member, :profile_image, size:"80x80",  fallback: "no_image.jpg", class:"rounded-circle" %></br>
+          <p class="profile_name"><%= @member.name %></p>
+        </div>
+        <%= @post %>
+        <div class="edit-links">
+        <% if @member.id == current_member.id %>
+          <%= link_to "", edit_member_path(@member), class: "btn btn-outline-success fas fa-user-cog fa-1x" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+<!--メンバーの投稿一覧-->
   <div class="row">
-    <table class="table table-bordered">
+    <table class="table table-bordered" width="960" height="760">
       <tbody class="col-md-10">
         <% @words.each do |word| %>
           <% word.genres.each do |genre| %>
-          <tr>
-            <td><%= genre.name %><% end %></td>
-            <td><%= word.sentence %></td>
-            <td class="like-btn"><%= render 'members/likes/like-btn', word:word %></td>
-            <td>
+          <tr align=center>
+            <td width="150"><%= genre.name %><% end %></td>
+            <td width="610"><%= word.sentence %></td>
+            <td width="100"><%= render 'members/likes/like-btn', word:word %></td>
+            <td width="50">
+              <%= link_to edit_word_path(word) do %>
+              <i class="fas fa-cog my-green"></i>
+              <% end %>
+              </td>
+            <td width="50">
               <%= link_to word_path(word), method: :delete, data: { confirm: '本当に削除しますか?' } do %>
               <i class="fas fa-trash-alt my-gray"></i>
               <% end %>

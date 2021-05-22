@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
-    <h3 class="d-inline-flex p-3 font-weight-bold">ココギャルにログイン</h3>
+    <h3 class="d-inline-flex p-5 font-weight-bold">ココギャルにログイン</h3>
   </div>
 
     <%= form_with model: @member, url: member_session_path, id: 'new_member', class: 'new_member', local: true do |f| %>
-      <div class="form-group row md-3 offset-2">
+      <div class="form-group row md-3 offset-2 pb-3">
         <%= f.label :email, "メールアドレス", class:"control-label col-sm-3 text-right" %><br>
         <%= f.email_field :email, class:"form-control col-4", autofocus: true, autocomplete: "email" %>
       </div>
