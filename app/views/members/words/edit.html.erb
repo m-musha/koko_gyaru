@@ -1,25 +1,26 @@
 <div class="container">
-  <div class="row d-flex align-items-center p-5">
+  <%= render 'layouts/error_messages', object: @word %>
+  <div class="row d-flex align-items-center p-5 pb-2">
     <h4>投稿編集ページ</h4>
   </div>
-  <div class="row d-flex align-items-center">
-    <div class="col-md-12"></div>
-    <%= form_with model:@word, local: true do |f| %>
-      <%= render 'layouts/error_messages', object: @word %>
 
-    <div class="form-group">
-      <%= f.label :sentence, "言葉" %></br>
-      <%= f.text_area :sentence %>
-    </div>
-    <div class="form-group">
-      <%= f.label :genre, 'ジャンル' %></br>
-      <%= f.fields_for :word_genres do |genre_form| %>
-        <%= genre_form.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択" %>
-      <% end %>
-    </div>
-    <div class="form-group">
+  <%= form_with model:@word, local: true do |f| %>
+      <div class="form-group row md-3 offset-2 mx-auto" style="width: 400px;">
+        <p class="text-center mb-5" style="width: 400px;">
+          <%= f.label :sentence, "言葉" %></br>
+          <%= f.text_area :sentence, class:"form-control" %>
+        </p>
+      </div>
+      <div class="form-group row md-3 offset-2 mx-auto" style="width: 250px;">
+        <p class="text-center mb-4" style="width: 250px;">
+          <%= f.label :genre, 'ジャンル', class:"control-label" %></br>
+          <%= f.fields_for :word_genres do |genre_form| %>
+          <%= genre_form.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択" %>
+          <% end %>
+        </p>
+      </div>
+      <div class="form-group row md-3 offset-2 mx-auto pt-3" style="width: 80px;">
       <%= f.submit "変更", class: "btn btn-outline-success" %>
-    </div>
-    <% end %>
-  </div>
+      </div>
+  <% end %>
 </div>

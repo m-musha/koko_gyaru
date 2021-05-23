@@ -3,12 +3,11 @@
     <h4><%= @name %>のお部屋</h4>
   </div>
 <!--プロフィール-->
-    <div class="member-info">
-      <div class="profile-container w-75 d-flex mx-auto justify-content-around align-items-center border-bottom py-5">
-        <div class="profile_image"><%= attachment_image_tag @member, :profile_image, size:"80x80",  fallback: "no_image.jpg", class:"rounded-circle" %></br>
+    <div class="row">
+      <div class="profile-container w-50 mx-auto d-flex justify-content-around align-items-center border-bottom pt-5 pb-3">
+        <div class="profile_image"><%= attachment_image_tag @member, :profile_image, size:"80x80", fallback: "no_image.jpg", class:"rounded-circle" %></br>
           <p class="profile_name"><%= @member.name %></p>
         </div>
-        <%= @post %>
         <div class="edit-links">
         <% if @member.id == current_member.id %>
           <%= link_to "", edit_member_path(@member), class: "btn btn-outline-success fas fa-user-cog fa-1x" %>
@@ -18,8 +17,8 @@
     </div>
 
 <!--メンバーの投稿一覧-->
-  <div class="row">
-    <table class="table table-bordered" width="960" height="760">
+  <div class="row d-flex align-items-center">
+    <table class="table table-bordered" width="960">
       <tbody class="col-md-10">
         <% @words.each do |word| %>
           <% word.genres.each do |genre| %>
@@ -31,7 +30,7 @@
               <%= link_to edit_word_path(word) do %>
               <i class="fas fa-cog my-green"></i>
               <% end %>
-              </td>
+            </td>
             <td width="50">
               <%= link_to word_path(word), method: :delete, data: { confirm: '本当に削除しますか?' } do %>
               <i class="fas fa-trash-alt my-gray"></i>
@@ -41,5 +40,10 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-12 d-flex justify-content-center">
+      <%= paginate @words %>
+    </div>
   </div>
 </div>

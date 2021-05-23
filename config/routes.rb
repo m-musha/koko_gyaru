@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     post 'admins/sign_in' => 'admins/sessions#create', as: 'admin_session'
     delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
   end
-    scope module: :admins do
-    resources :genres
-    end
+  namespace :admins do
+     resources :genres, except: [:show]
+  end
 
   root to: 'sites#top'
 
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       resource :likes, only: [:destroy, :create]
     end
     resources :members, except: [:index, :new, :destroy]
+    resources :genres, only: [:show]
     get '/search' => 'searchs#search'
   end
-
 end

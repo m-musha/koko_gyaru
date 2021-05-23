@@ -6,8 +6,8 @@
       <div class="main-visual-text-3">あなたの言葉を<strong>メンバー</strong>に届けよう。</div>
     </div>
     <div class="main-visual-btn">
-      <div class="new-btn"><%= link_to "新規登録", "/members/sign_up", :style=>"color:black;" %></div>
-      <div class="login-btn"><%= link_to "ログイン", "/members/sign_in", :style=>"color:black;" %></div>
+      <%= link_to "新規登録", "/members/sign_up", :style=>"color:black;", class:"new-btn" %>
+      <%= link_to "ログイン", "/members/sign_in", :style=>"color:black;", class:"login-btn" %>
     </div>
   </div>
 </div>

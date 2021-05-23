@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row d-flex align-items-center pt-5">
+    <h4><%= @genre.name %></h4>
+  </div>
+
+  <div class="row mt-5">
+    <table class="table table-bordered">
+      <tbody class="col-md-8">
+        <% @words.each do |word| %>
+        <tr align=center>
+          <td width="100">
+          <%= link_to member_path(word.member) do %>
+            <div class="profile-container">
+            <%= attachment_image_tag word.member, :profile_image, size:"50x50", fallback: "no_image.jpg", class:"rounded-circle" %>
+            </div>
+          <% end %>
+          </td>
+          <td width="130"><%= link_to "#{word.member.name}", member_path(word.member) %></td>
+          <td width="600"><%= link_to "#{word.sentence}", word_path(word) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-12 d-flex justify-content-center">
+      <%= paginate @words %>
+    </div>
+  </div>
+</div>

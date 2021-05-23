@@ -4,7 +4,7 @@ class Members::MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
-    @words = @member.words
+    @words = @member.words.page(params[:page]).reverse_order
     @name = @member.name
   end
 

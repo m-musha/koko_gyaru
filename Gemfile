@@ -78,6 +78,7 @@ group :production do
   gem 'mysql2'
 end
 
+#メールを確認できる
 group :development do
   gem 'letter_opener_web'
 end

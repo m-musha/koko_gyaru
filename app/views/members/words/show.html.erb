@@ -2,27 +2,25 @@
   <div class="row d-flex align-items-center p-3">
     <h4>詳細ページ</h4>
   </div>
-  
-  <div class="sentence-area">
-    <%= @word.sentence %>
-  </div>
+
   <div class="info">
-    <%= link_to member_path(@word.member) do %>
-      <%= attachment_image_tag @word.member, :profile_image, size:"80x80", fallback: "no_image.jpg" %><br>
-      <%= @member.name %>
-    <% end %>
+    <div class="row d-flex align-items-center">
+      <div class="col-5">
+        <div class="profile-container w-50 mx-auto d-flex justify-content-around align-items-center border-bottom pt-5 pb-3">
+        <%= link_to member_path(@word.member) do %>
+          <%= attachment_image_tag @word.member, :profile_image, size:"80x80", fallback: "no_image.jpg", class:"rounded-circle" %><br>
+          <span class="text-align"><%= @member.name %></span>
+        <% end %>
+        </div>
+      </div>
+      <div class="col-7 align-items-left">
+        <p class="word-genre">ジャンル：<%= @word.genres.name %></p>
+        <p class="word-sentence">言 葉：<%= @word.sentence %></p>
+        <p class="word-info">
+          <span class="word-createday">登校日：<%= @word.created_at.strftime("%Y年%m月%d日") %>／</span>
+          <span class="word-like"> いいね数： <%= render 'members/likes/like-btn', word:@word %></span>
+        </p>
+      </div>
+    </div>
   </div>
-  
-  
-    <div class="day">
-      投稿日<%= @word.created_at.strftime("%Y年%m月%d日") %>
-    </div>
-    <div class="like">
-      <%= render 'members/likes/like-btn', word:@word %>
-    </div>
-
-      
-
-
-
 </div>
