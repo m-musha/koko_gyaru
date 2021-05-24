@@ -1,8 +1,9 @@
 class Members::WordsController < ApplicationController
   before_action :authenticate_member!, except: [:index, :show]
+  # layout 'words'
 
   def index
-    @words = Word.all
+    @words = Word.all.page(params[:page]).reverse_order
     @all_ranks = Word.create_all_ranks
   end
 

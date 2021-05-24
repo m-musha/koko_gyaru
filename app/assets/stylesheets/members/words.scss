@@ -96,3 +96,9 @@
     margin: 0 auto;
   }
  }
+
+ .sentence, .ranks-word {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+ }
