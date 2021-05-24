@@ -1,9 +1,10 @@
 <% if word.likes.find_by(member: current_member) %>
   <%= link_to word_likes_path(word.id), method: :delete, remote: true do %>
-  <i class="fas fa-heart fa-lg faa-pulse my_red"></i><%= word.likes.count %>
+  <i class="fas fa-heart fa-lg faa-pulse my_red"></i><span style="color: black;"><%= word.likes.count %></span>
   <% end %>
 <% else %>
   <%= link_to word_likes_path(word.id), method: :post, remote: true do %>
-  <i class="fas fa-heart fa-lg faa-ring animated-hover my-gray"></i><%= word.likes.count %>
+  <i class="fas fa-heart fa-lg faa-ring animated-hover my-gray"></i><span style="color: black;"><%= word.likes.count %></span>
   <% end %>
 <% end %>
+
