@@ -1,6 +1,5 @@
 class Members::WordsController < ApplicationController
   before_action :authenticate_member!, except: [:index, :show]
-  # layout 'words'
 
   def index
     @words = Word.all.page(params[:page]).reverse_order
@@ -23,10 +22,8 @@ class Members::WordsController < ApplicationController
     @word = Word.new(word_params)
     @word.member = current_member
     if @word.save
-      flash[:success] = "投稿しました！"
       redirect_to word_path(@word)
     else
-      flash[:alert] = "投稿に失敗しました！"
       render :new
     end
   end
@@ -43,10 +40,8 @@ class Members::WordsController < ApplicationController
   def update
     @word = Word.find(params[:id])
     if @word.update(word_params)
-      flash[:success] = "変更を保存しました！"
       redirect_to word_path(@word)
     else
-      flash[:alert] = "保存に失敗しました！"
       render :edit
     end
   end
@@ -61,6 +56,13 @@ class Members::WordsController < ApplicationController
 
   def word_params
     params.require(:word).permit(:member_id, :sentence, word_genres_attributes: :genre_id)
+  end
+
+  def ensure_correct_member
+    @word = Word.find(params[:id])
+    unless @word == current_member
+      redirect_to words_path
+    end
   end
 
 

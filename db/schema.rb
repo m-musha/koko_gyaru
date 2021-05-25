@@ -59,13 +59,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_071321) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_tags_on_name", unique: true
-  end
-
   create_table "word_genres", force: :cascade do |t|
     t.integer "word_id"
     t.integer "genre_id"
@@ -73,16 +66,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_071321) do
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_word_genres_on_genre_id"
     t.index ["word_id"], name: "index_word_genres_on_word_id"
-  end
-
-  create_table "word_tags", force: :cascade do |t|
-    t.integer "word_id"
-    t.integer "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_word_tags_on_tag_id"
-    t.index ["word_id", "tag_id"], name: "index_word_tags_on_word_id_and_tag_id", unique: true
-    t.index ["word_id"], name: "index_word_tags_on_word_id"
   end
 
   create_table "words", force: :cascade do |t|

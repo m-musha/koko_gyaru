@@ -1,51 +1,49 @@
-    <header class="shadow-md mb-0">
-      <div class="container">
-        <div class="row">
-            <div class="logo"><%= link_to image_tag("logo.png"), "/" %></div>
-              <div class="search"><%= render 'layouts/search-form' %></div>
-              <nav class="navbar navbar-expand-lg navbar-light">
-                <ul class="navbar-nav">
-                  <!--ログイン中-->
-                  <% if member_signed_in? %>
-                    <li class="navbar-item">
-                      <%= link_to words_path do %>
-                      <i class="fas fa-file-word fa-2x fa-border my-blue text-center"></i>
-                      <% end %>
-                    </li>
-                    <li class="navbar-item">
-                      <%= link_to new_word_path do %>
-                      <i class="far fa-edit fa-2x fa-border my-orange text-center"></i>
-                      <% end %>
-                    </li>
-                    <li class="navbar-item">
-                      <%= link_to "/members/#{current_member.id}" do %>
-                      <i class="fas fa-house-user fa-2x fa-border my-pink"></i>
-                      <% end %>
-                    </li>
-                    <li class="navbar-item">
-                      <%= link_to destroy_member_session_path, method: :delete do %>
-                      <i class="fas fa-sign-out-alt fa-2x fa-border my-black"></i>
-                      <% end %>
-                    </li>
-                  <!--管理者の時-->
-                  <% elsif admin_signed_in? %>
-                    <p><%= link_to "ジャンル", genres_path, class:"link" %></p>
-                    <p><%= link_to "ログアウト", destroy_admin_session_path, class:"link", method: :delete %></p>
-　　　　　　　　　<!--ゲストの時-->
-                  <% else %>
-                    <li class="navbar-item">
-                      <%= link_to new_member_registration_path do %>
-                      <i class="fas fa-user-lock fa-2x fa-border my-green"></i>
-                      <% end %>
-                    </li>
-                    <li class="navbar-item">
-                      <%= link_to new_member_session_path do %>
-                      <i class="fas fa-sign-in-alt fa-2x fa-border my-black"></i>
-                      <% end %>
-                    </li>
-                  <% end %>
-                </ul>
-              </nav>
-        </div>
-      </div>
-    </header>
+<header class="shadow-md mb-0">
+  <div class="container">
+    <div class="search"><%= render 'layouts/search-form' %></div>
+    <nav class="navbar w-100">
+      <ul class="navbar-list w-100">
+        <li class="navbar-item float-left"><%= link_to image_tag("logo.png"), "/" %></li>
+  <!--ログイン中-->
+        <% if member_signed_in? %>
+          <li class="navbar-item float-right">
+            <%= link_to words_path do %>
+            <i class="fas fa-file-word fa-2x fa-border my-blue text-center"></i>
+            <% end %>
+          </li>
+          <li class="navbar-item float-right">
+            <%= link_to new_word_path do %>
+            <i class="far fa-edit fa-2x fa-border my-orange text-center"></i>
+            <% end %>
+          </li>
+          <li class="navbar-item float-right">
+            <%= link_to "/members/#{current_member.id}" do %>
+            <i class="fas fa-house-user fa-2x fa-border my-pink"></i>
+            <% end %>
+          </li>
+          <li class="navbar-item float-right">
+            <%= link_to destroy_member_session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt fa-2x fa-border my-black"></i>
+            <% end %>
+          </li>
+  <!--管理者の時-->
+          <% elsif admin_signed_in? %>
+            <p><%= link_to "ジャンル", admins_genres_path, class:"link" %></p>
+            <p><%= link_to "ログアウト", destroy_admin_session_path, class:"link", method: :delete %></p>
+　<!--ゲストの時-->
+          <% else %>
+            <li class="navbar-item">
+              <%= link_to new_member_registration_path do %>
+              <i class="fas fa-user-lock fa-2x fa-border my-green"></i>
+              <% end %>
+            </li>
+            <li class="navbar-item">
+              <%= link_to new_member_session_path do %>
+              <i class="fas fa-sign-in-alt fa-2x fa-border my-black"></i>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

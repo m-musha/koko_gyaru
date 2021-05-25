@@ -4,7 +4,7 @@
   </div>
 <!--プロフィール-->
     <div class="row">
-      <div class="profile-container w-50 mx-auto d-flex justify-content-around align-items-center border-bottom pt-5 pb-3">
+      <div class="profile-container w-50 mx-auto d-flex justify-content-around align-items-center pt-5 pb-3">
         <div class="profile_image"><%= attachment_image_tag @member, :profile_image, size:"80x80", fallback: "no_image.jpg", class:"rounded-circle" %></br>
           <p class="profile_name"><%= @member.name %></p>
         </div>
@@ -26,16 +26,18 @@
             <td width="150"><%= genre.name %><% end %></td>
             <td width="610"><%= word.sentence %></td>
             <td width="100"><%= render 'members/likes/like-btn', word:word %></td>
-            <td width="50">
-              <%= link_to edit_word_path(word) do %>
-              <i class="fas fa-cog my-green"></i>
-              <% end %>
-            </td>
-            <td width="50">
-              <%= link_to word_path(word), method: :delete, data: { confirm: '本当に削除しますか?' } do %>
-              <i class="fas fa-trash-alt my-gray"></i>
-              <% end %>
-            </td>
+            <% if @member.id == current_member.id %>
+              <td width="50">
+                <%= link_to edit_word_path(word) do %>
+                <i class="fas fa-cog my-green"></i>
+                <% end %>
+              </td>
+              <td width="50">
+                <%= link_to word_path(word), method: :delete, data: { confirm: '本当に削除しますか?' } do %>
+                <i class="fas fa-trash-alt my-gray"></i>
+                <% end %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

@@ -4,11 +4,11 @@ class Admins::GenresController < ApplicationController
     @genre = Genre.new
     @genres = Genre.all
   end
-  
+
   def create
     genre = Genre.new(genre_params)
     genre.save
-    redirect_to genres_path
+    redirect_to admins_genres_path
   end
 
 
@@ -21,11 +21,11 @@ class Admins::GenresController < ApplicationController
     genre.update(genre_params)
     redirect_to genres_path
   end
-  
+
   def destroy
     genre = Genre.find(params[:id])
     genre.destroy
-    redirect_to genres_path
+    redirect_to admins_genres_path
   end
 
   private

@@ -1,11 +1,13 @@
 <% if member_signed_in? %>
   <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <div class="search-form"><%= f.text_field :text, class: "form-control" %></div>
-    <div class="search-item"><%= f.select :range, options_for_select([["メンバー","member"], ["言葉","word"], ["ジャンル","genre"]]) %></div>
-    <div class="search-item"><%= f.select :search, options_for_select([["完全一致","perfect"], ["部分一致","partial_match"]]) %></div>
-    <div class="search-btn"><%= f.button :type => "submit", style: 'border-style: none;' do %>
+    <%= f.text_field :text, class: "form-control" %>
+    <ul class="search-form">
+    <li class="search-category"><%= f.select :range, options_for_select([["メンバー","member"], ["言葉","word"], ["ジャンル","genre"]]) %></li>
+    <li class="search-type"><%= f.select :search, options_for_select([["完全一致","perfect"], ["部分一致","partial_match"]]) %></li>
+    <li class="search-btn"><%= f.button :type => "submit", style: 'border-style: none;' do %>
       <i class="fas fa-search"></i>
     <% end %>
-    </div>
+    </li>
+    </ul>
   <% end %>
 <% end %>

@@ -29,6 +29,7 @@ class Word < ApplicationRecord
     Word.find(Like.group(:word_id).order('count(word_id) desc').limit(5).pluck(:word_id))
   end
 
-  validates :sentence, presence: true
+  validates :sentence, presence: true, length: {maximum: 100}
+  
 
 end
