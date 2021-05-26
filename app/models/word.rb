@@ -10,7 +10,8 @@ class Word < ApplicationRecord
 
   # 別々のモデルを同時に保存しやすくする
   # カラム自体は存在しないけど、カラムのように使うことができる
-  accepts_nested_attributes_for :word_genres
+  # allow_destroy: true で関連のオブジェクトを削除
+  accepts_nested_attributes_for :word_genres, allow_destroy: true
 
   def liked_by?(member)
     likes.where(member_id: member.id).exists?
