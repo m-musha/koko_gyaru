@@ -24,7 +24,11 @@
           <% word.genres.each do |genre| %>
           <tr align=center>
             <td width="150"><%= genre.name %><% end %></td>
-            <td width="610"><%= word.sentence %></td>
+            <td width="610" class="sentence">
+              <%= link_to word_path(word.id) do %>
+              <%= word.sentence %>
+              <% end %>
+            </td>
             <td width="100"><%= render 'members/likes/like-btn', word:word %></td>
             <% if @member.id == current_member.id %>
               <td width="50">

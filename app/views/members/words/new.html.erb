@@ -3,6 +3,8 @@
     <h4>新規投稿</h4>
   </div>
 
+  <%= render 'layouts/error_messages', object: @word %>
+
     <%= form_with model:@word, local:true do |f| %>
       <div class="form-group row md-3 offset-2 mx-auto" style="width: 400px;">
         <p class="text-center mb-0" style="width: 400px;">

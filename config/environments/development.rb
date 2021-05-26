@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -34,12 +36,12 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-  
-  #メールの送信失敗時、エラーを表示するか否か
+
+  # メールの送信失敗時、エラーを表示するか否か
   config.action_mailer.raise_delivery_errors = true
-  #メールの送信方法
+  # メールの送信方法
   config.action_mailer.delivery_method = :smtp
-  #smptの詳細設定↓
+  # smptの詳細設定↓
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,

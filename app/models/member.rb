@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -9,17 +11,15 @@ class Member < ApplicationRecord
 
   attachment :profile_image, destroy: false
 
-#検索機能
+  # 検索機能
   def self.search(search, text)
     if search == 'perfect'
-      Member.where(name: "#{text}")
+      Member.where(name: text.to_s)
     else
       Member.where('name LIKE ?', "%#{text}%")
     end
   end
-  
+
   validates :email, presence: true
-  validates :name, length: {maximum: 15, minimum: 1}, uniqueness: true
-
+  validates :name, length: { maximum: 15, minimum: 1 }, uniqueness: true
 end
-

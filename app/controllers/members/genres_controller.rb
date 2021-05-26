@@ -1,8 +1,10 @@
-class Members::GenresController < ApplicationController
+# frozen_string_literal: true
 
-  def show
-    @genre = Genre.find(params[:id])
-    @words = @genre.words.page(params[:page]).reverse_order
+module Members
+  class GenresController < ApplicationController
+    def show
+      @genre = Genre.find(params[:id])
+      @words = @genre.words.page(params[:page]).reverse_order
+    end
   end
-
 end
