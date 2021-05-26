@@ -1,14 +1,14 @@
 <header class="shadow-md mb-0">
   <div class="container">
-    <div class="search"><%= render 'layouts/search-form' %></div>
-    <nav class="navbar w-100">
-      <ul class="navbar-list w-100">
+    <nav class="navbar">
+      <ul class="navbar-list">
         <li class="navbar-item float-left"><%= link_to image_tag("logo.png"), "/" %></li>
+        <li class="search-form"><%= render 'layouts/search-form' %></li>
   <!--ログイン中-->
         <% if member_signed_in? %>
-          <li class="navbar-item float-right">
-            <%= link_to destroy_member_session_path, method: :delete do %>
-            <i class="fas fa-sign-out-alt fa-2x fa-border my-black"></i>
+          <li class="navbar-item float-right mr-3">
+            <%= link_to words_path do %>
+            <i class="fas fa-file-word fa-2x fa-border my-blue text-center"></i>
             <% end %>
           </li>
           <li class="navbar-item float-right mr-3">
@@ -21,9 +21,9 @@
             <i class="fas fa-house-user fa-2x fa-border my-pink"></i>
             <% end %>
           </li>
-          <li class="navbar-item float-right mr-3">
-            <%= link_to words_path do %>
-            <i class="fas fa-file-word fa-2x fa-border my-blue text-center"></i>
+          <li class="navbar-item float-right">
+            <%= link_to destroy_member_session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt fa-2x fa-border my-black"></i>
             <% end %>
           </li>
   <!--管理者の時-->

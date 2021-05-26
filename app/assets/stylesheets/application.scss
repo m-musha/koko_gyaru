@@ -51,43 +51,20 @@
   position: relative;
  }
 
- .search{
-  width: 350px;
-  position: absolute;
-  top: 25px;
-  left: 500px;
+
   ul{
+   width: 100%;
    margin-top: 20px;
+   display: flex;
   }
   li{
    display:inline;
+   list-style: none;
   }
-  &-category{
-  list-style: none;
-  margin-top: 20px;
-  }
-  &-type{
-  list-style: none;
-  margin-top: 20px;
-  }
-  &-btn{
-  list-style: none;
-  color: #fff;
-  width: 20px;
-  height: 20px;
-  margin-top: 20px;
-  }
- }
 
-.navbar{
- width: 300px;
- height: 120px;
-&-list{
+.search-form{
+ width: 40%;
  margin: 0 auto;
-}
-&-item{
- list-style: none;
- display: inline;}
 }
 
  main{
@@ -107,8 +84,6 @@
  td{
   border: solid 2px #EAD9FF;
  }
-
-
 
  p{
   width: 120px;
