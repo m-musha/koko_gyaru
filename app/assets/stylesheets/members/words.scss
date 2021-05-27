@@ -47,7 +47,7 @@
 }
 
 .ranks{
-  width: 100%;
+  width: 80%;
   margin: 20px auto;
   background-color: #fff;
   list-style: none;
@@ -59,25 +59,25 @@
   height: 35px;
  }
  &-number{
-   width: 100px;
+   width: 7%;
    border-right-style: dashed;
    border-color: #CCC;
    text-align: center;
  }
  &-genre{
-   width: 140px;
+   width: 13%;
    padding-left: 10px;
    border-right-style: dashed;
    border-color: #CCC;
  }
  &-word{
-   width: 750px;
+   width: 53%;
    padding-left: 10px;
    border-right-style: dashed;
    border-color: #CCC;
  }
  &-like{
-   width: 147px;
+   width: 7%;
    padding-left: 10px;
  }
 }

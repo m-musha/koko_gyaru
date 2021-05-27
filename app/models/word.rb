@@ -4,7 +4,7 @@ class Word < ApplicationRecord
   # ジャンルとアソシエーション
   has_many :word_genres
   has_many :genres, through: :word_genres
-  has_one :word_genre
+  has_one :word_genre, dependent: :destroy
 
   has_many :likes, dependent: :destroy
   belongs_to :member

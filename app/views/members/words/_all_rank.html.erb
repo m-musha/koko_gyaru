@@ -25,7 +25,7 @@
               <%= word.sentence %>
               <% end %>
               </td>
-            <td class="ranks-like">いいね数：<%= word.likes.count %></td>
+            <td class="ranks-like"><%= render 'members/likes/like-btn', word:word %></td>
             <% lastFavorite = word.likes.count %>
           <% else %>                                     <!--elseに1位を記述-->
           <% lastFavorite = word.likes.count %>
@@ -40,7 +40,7 @@
               <%= word.sentence %>
               <% end %>
             </td>
-            <td class="ranks-like">いいね数：<%= word.likes.count %></td>
+            <td class="ranks-like"><%= render 'members/likes/like-btn', word:word %></td>
           <% end %>
         <% end %>
         </tr>
