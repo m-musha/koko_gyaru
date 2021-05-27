@@ -3,7 +3,6 @@
 Rails.application.routes.draw do
   devise_for :members, controllers: {
     sessions: 'members/sessions',
-    passwords: 'members/passwords',
     registrations: 'members/registrations'
   }
 
@@ -25,7 +24,10 @@ Rails.application.routes.draw do
       resource :likes, only: %i[destroy create]
     end
     resources :members, except: %i[index new destroy]
-    resources :genres, only: [:show]
     get '/search' => 'searchs#search'
   end
+
+  get 'members/genres/:id', to: 'members/genres#show'
 end
+
+

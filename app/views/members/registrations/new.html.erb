@@ -3,7 +3,6 @@
     <h4>新規メンバー登録</h4>
   </div>
   <%= render "members/shared/error_messages", resource: resource %>
-
   <%= form_with model: @member, url: member_registration_path, id: 'new_member', class: 'new_member', local: true do |f| %>
 
       <div class="form-group row md-3 offset-2 pb-3">

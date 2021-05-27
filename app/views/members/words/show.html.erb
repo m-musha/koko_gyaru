@@ -14,8 +14,8 @@
       <p class="member-info-genre"><%= @word.genre.name %></p>
       <p class="member-info-sentence"><%= @word.sentence %></p>
       <p class="member-info-word">
-        <span style="background-color: #FFCC99" class="mr-4">投稿日：<%= @word.created_at.strftime("%Y年%m月%d日") %></span>
-        <span style="background-color: #FFF"> いいね数： <%= render 'members/likes/like-btn', word:@word %></span>
+        <span class="member-day" style="background-color: #FFCC99">投稿日：<%= @word.created_at.strftime("%Y年%m月%d日") %></span>
+        <span class="member-like"> いいね数： <%= render 'members/likes/like-btn', word:@word %></span>
       </p>
     </div>
   </div>

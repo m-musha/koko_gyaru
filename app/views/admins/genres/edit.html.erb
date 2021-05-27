@@ -3,7 +3,7 @@
     <h4 class="mx-auto text-center my-5" style="width: 450px;">ジャンル名編集</h4>
   </div>
 
-    <%= form_with model:@genre, local:true do |f| %>
+    <%= form_with model:[:admins, @genre], local:true do |f| %>
     <div class="form-group row md-3 offset-2 mx-auto" style="width: 300px">
       <div class="text-center mt-2" style="width: 300px;">
       <%= f.label :name, "ジャンル名" %>
