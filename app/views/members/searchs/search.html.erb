@@ -49,7 +49,7 @@
             <% @genre.each do |genre| %>
               <tr width="300">
                 <td align=center>
-                  <%= link_to members_path(genre), :style=>"color:black;" do %>
+                  <%= link_to members_genres_path(genre.id), :style=>"color:black;" do %>
                   <%= genre.name %>
                   <% end %>
                 </td>

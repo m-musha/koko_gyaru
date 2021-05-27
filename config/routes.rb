@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get '/search' => 'searchs#search'
   end
 
-  get 'members/genres/:id', to: 'members/genres#show'
+  get 'members/genres/:id', to: 'members/genres#show', as: 'members_genres'
 end
 
 

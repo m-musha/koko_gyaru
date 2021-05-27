@@ -43,35 +43,39 @@
   }
 }
 
+// indexページのランキングテーブル
 .ranks{
   width: 80%;
   margin: 20px auto;
   background-color: #fff;
   list-style: none;
-  border-style: dashed;
-  border-color: #CCC;
-
+  border: dashed 2px #C299FF;
+  padding: 0.2em 0.5em;
+  box-shadow: 0 0 0 5px #fff;
   &-list{
   border-bottom-style: dashed;
   height: 35px;
  }
  &-number{
    width: 7%;
-   border-right-style: dashed;
-   border-color: #CCC;
    text-align: center;
+   border: dashed 2px #C299FF;
+   padding: 0.2em 0.5em;
+   box-shadow: 0 0 0 5px #fff;
  }
  &-genre{
    width: 13%;
    padding-left: 10px;
-   border-right-style: dashed;
-   border-color: #CCC;
+   border: dashed 2px #C299FF;
+   padding: 0.2em 0.5em;
+   box-shadow: 0 0 0 5px #fff;
  }
  &-word{
    width: 53%;
    padding-left: 10px;
-   border-right-style: dashed;
-   border-color: #CCC;
+   border: dashed 2px #C299FF;
+   padding: 0.2em 0.5em;
+   box-shadow: 0 0 0 5px #fff;
  }
  &-like{
    width: 7%;
@@ -79,10 +83,11 @@
  }
 }
 
-
-.genre{
-  width: 140px;
+// indexページ一覧テーブル
+.td-genre{
+  width: 15%;
 }
+
 
 .form{
   width: 100%;
