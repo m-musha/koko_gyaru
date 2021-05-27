@@ -12,6 +12,11 @@ module Members
 
     def edit
       @member = Member.find(params[:id])
+      if @member == current_member
+        render :edit
+      else
+        redirect_to member_path(current_member.id)
+      end
     end
 
     def update
@@ -31,7 +36,9 @@ module Members
 
     def ensure_correct_member
       @member = Member.find(params[:id])
-      redirect_to member_path(current_user) unless @member == current_member
+      unless @member == current_member
+        redirect_to member_path(current_user)
+      end
     end
   end
 end

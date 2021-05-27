@@ -28,8 +28,8 @@
           </li>
   <!--管理者の時-->
           <% elsif admin_signed_in? %>
-            <li class="navbar-item float-right"><%= link_to "ログアウト", destroy_admin_session_path, class:"link", method: :delete %></li>
             <li class="navbar-item float-right"><%= link_to "ジャンル", admins_genres_path, class:"link" %>・</li>
+            <li class="navbar-item float-right"><%= link_to "ログアウト", destroy_admin_session_path, class:"link", method: :delete %></li>
 　<!--ゲストの時-->
           <% else %>
             <li class="navbar-item float-right mr-3">

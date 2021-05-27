@@ -32,8 +32,7 @@ module Members
 
     def edit
       @word = Word.find(params[:id])
-      @word.word_genres.build
-      if @word.member != current_member.id
+      if @word.member == current_member.id
         render :edit
       else
         redirect_to '/'
@@ -42,7 +41,10 @@ module Members
 
     def update
       @word = Word.find(params[:id])
+
       if @word.update(word_params)
+        #wordに紐づくword_genreを更新している（has_one）
+        @word.word_genre.update(word_genres_update_params)
         redirect_to word_path(@word)
       else
         render :edit
@@ -58,12 +60,19 @@ module Members
     private
 
     def word_params
-      params.require(:word).permit(:member_id, :sentence, word_genres_attributes: :genre_id)
+      params.require(:word).permit(:member_id, :sentence, word_genres_attributes: [:genre_id])
+    end
+
+      #accepts_nested_attributes_forを無視するために記述
+    def word_genres_update_params
+      params.require(:word).permit(:genre_id)
     end
 
     def ensure_correct_member
       @word = Word.find(params[:id])
-      redirect_to words_path unless @word == current_member
+      unless @word == current_member
+        redirect_to words_path
+      end
     end
   end
 end
