@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Genre < ApplicationRecord
-  has_many :word_genres
-  has_many :words, through: :word_genres
+ # has_many :word_genres
+  has_many :words, dependent: :destroy
 
   validates :name, presence: true
 

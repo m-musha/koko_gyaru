@@ -21,9 +21,9 @@
     <table class="table table-bordered" width="960">
       <tbody class="col-md-10">
         <% @words.each do |word| %>
-          <% word.genres.each do |genre| %>
+          <%# word.genres.each do |genre| %>
           <tr align=center>
-            <td width="150"><%= genre.name %><% end %></td>
+            <td width="150"><%= word.genre.name %><%# end %></td>
             <td width="610" class="sentence">
               <%= link_to word_path(word.id) do %>
               <%= word.sentence %>

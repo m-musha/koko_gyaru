@@ -17,7 +17,7 @@ module Members
     def new
       @word = Word.new
       # WordGenre.new(word_id: word.id)を簡略して記述
-      @word.word_genres.build
+      #@word.word_genres.build
     end
 
     def create
@@ -44,7 +44,7 @@ module Members
 
       if @word.update(word_params)
         #wordに紐づくword_genreを更新している（has_one）
-        @word.word_genre.update(word_genres_update_params)
+        #@word.word_genre.update(word_genres_update_params)
         redirect_to word_path(@word)
       else
         render :edit
@@ -60,7 +60,7 @@ module Members
     private
 
     def word_params
-      params.require(:word).permit(:member_id, :sentence, word_genres_attributes: [:genre_id])
+      params.require(:word).permit(:member_id, :sentence, :genre_id)
     end
 
       #accepts_nested_attributes_forを無視するために記述

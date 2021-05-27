@@ -16,9 +16,11 @@
             <% j = i %>
             <td class="ranks-number">第<%= j %>位</td>
             <td class="ranks-genre">
-              <% word.genres.each do |genre| %>
-              <%= genre.name %>
-              <% end %>
+              <%= word.genre.name %>
+              <%# word.genres.each do |g
+              enre| %>
+              <%#= genre.name %>
+              <%# end %>
             </td>
             <td class="ranks-word">
               <%= link_to word_path(word.id) do %>
@@ -31,9 +33,9 @@
           <% lastFavorite = word.likes.count %>
             <td class="ranks-number">第<%= j %>位</td>
             <td class="ranks-genre">
-              <% word.genres.each do |genre| %>
-              <%= genre.name %>
-              <% end %>
+              <%# word.genres.each do |genre| %>
+              <%= word.genre.name %>
+              <%# end %>
             </td>
             <td class="ranks-word">
               <%= link_to word_path(word.id) do %>
