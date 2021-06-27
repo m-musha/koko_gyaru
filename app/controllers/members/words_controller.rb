@@ -3,6 +3,7 @@
 module Members
   class WordsController < ApplicationController
     before_action :authenticate_member!, except: %i[index show]
+    before_action :ensure_correct_member, only: [:update, :edit, :destroy]
 
     def index
       @words = Word.all.page(params[:page]).reverse_order
@@ -65,7 +66,7 @@ module Members
 
     def ensure_correct_member
       @word = Word.find(params[:id])
-      unless @word == current_member
+      unless @word = current_member.id
         redirect_to words_path
       end
     end

@@ -3,15 +3,15 @@
 module Members
   class MembersController < ApplicationController
     before_action :authenticate_member!
+    before_action :ensure_correct_member, only: [:edit, :update]
+    before_action :set_member
 
     def show
-      @member = Member.find(params[:id])
       @words = @member.words.page(params[:page]).reverse_order
       @name = @member.name
     end
 
     def edit
-      @member = Member.find(params[:id])
       if @member == current_member
         render :edit
       else
@@ -20,7 +20,6 @@ module Members
     end
 
     def update
-      @member = Member.find(params[:id])
       if @member.update(member_params)
         redirect_to member_path(current_member.id)
       else
@@ -30,14 +29,18 @@ module Members
 
     private
 
+    def set_member
+      @member = Member.find(params[:id])
+    end
+
     def member_params
       params.require(:member).permit(:name, :profile_image)
     end
 
     def ensure_correct_member
       @member = Member.find(params[:id])
-      unless @member == current_member
-        redirect_to member_path(current_user)
+      unless @member = current_member
+        redirect_to member_path(current_member)
       end
     end
   end
